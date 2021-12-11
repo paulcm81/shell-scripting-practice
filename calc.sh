@@ -1,11 +1,28 @@
 #! /usr/bin/env bash
+echo "### Welcome to my calculator ### "
 
-# When the program is first loaded, display a greeting to the user.
-# Then, display a menu that outlines the possible operations:
-  # Add
-  # Subtract
-  # Exit
-# Then, capture the user selection.
-# If the selection matches a supported operation, execute the operation.
-# If the selection does not match a support operation, display an error message.
-# When the operation is complete, redisplay the menu.
+echo "Enter Two numbers : "
+read a
+read b
+ 
+# Input type of operation
+echo "Enter Choice :"
+echo "1. Addition"
+echo "2. Subtraction"
+echo "3. Multiplication"
+echo "4. Division"
+read ch
+ 
+# Switch Case to perform
+# calculator operations
+case $ch in
+  1)res=`echo $a + $b | bc`
+  ;;
+  2)res=`echo $a - $b | bc`
+  ;;
+  3)res=`echo $a \* $b | bc`
+  ;;
+  4)res=`echo "scale=2; $a / $b" | bc`
+  ;;
+esac
+echo "Result : $res"
